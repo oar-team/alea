@@ -81,8 +81,8 @@ public class WorkloadReaderSWF {
         this.norm = new Sim_normal_obj("normal distr", 0.0, 5.0, (121 + ExperimentSetup.rnd_seed));
         this.data_set = data_set;
 
-        String input_path = ExperimentSetup.data_sets + "/" + data_set;
-        System.out.println(ExperimentSetup.data_sets + "/" + data_set);
+        String input_path = ExperimentSetup.data_sets_dir + "/" + data_set;
+        System.out.println(ExperimentSetup.data_sets_dir + "/" + data_set);
         br = r.openFile(new File(input_path));
 
         this.maxPE = maxPE;

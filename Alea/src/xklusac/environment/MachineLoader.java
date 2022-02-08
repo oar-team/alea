@@ -71,8 +71,8 @@ public class MachineLoader {
 
         BufferedReader br = null;
 
-        br = r.openFile(new File(ExperimentSetup.data_sets + "/" + data_set + ".machines"));
-        System.out.println("Opening: " + ExperimentSetup.data_sets + "/" + data_set + ".machines");
+        br = r.openFile(new File(ExperimentSetup.data_sets_dir + "/" + data_set + ".machines"));
+        System.out.println("Opening: " + ExperimentSetup.data_sets_dir + "/" + data_set + ".machines");
         r.getLines(lines, br);
         r.closeFile(br);
         int name_id = 0;
@@ -224,7 +224,7 @@ public class MachineLoader {
         Input r = new Input();
         BufferedReader br = null;
 
-        br = r.openFile(new File(ExperimentSetup.data_sets + "/" + data_set + ".machines"));
+        br = r.openFile(new File(ExperimentSetup.data_sets_dir + "/" + data_set + ".machines"));
         r.getLines(lines, br);
         r.closeFile(br);
 
@@ -429,7 +429,7 @@ public class MachineLoader {
         Input r = new Input();
 
         BufferedReader br = null;
-        br = r.openFile(new File(ExperimentSetup.data_sets + "/" + data_set + ".machines"));
+        br = r.openFile(new File(ExperimentSetup.data_sets_dir + "/" + data_set + ".machines"));
         r.getLines(lines, br);
         r.closeFile(br);
         // create machines from file

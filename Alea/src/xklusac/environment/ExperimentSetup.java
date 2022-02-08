@@ -342,7 +342,7 @@ public class ExperimentSetup {
      */
     public static boolean by_queue;
 
-    public static String data_sets;
+    public static String data_sets_dir;
     
     private static String[] dir = new String[4];
     
@@ -451,7 +451,7 @@ public class ExperimentSetup {
         // set true to use different queues
         use_queues = aCfg.getBoolean("use_queues");
         by_queue = aCfg.getBoolean("by_queue");
-        data_sets = aCfg.getString("data_set_dir");
+        data_sets_dir = aCfg.getString("data_set_dir");
         
         // if required - start the graphical output using -v parameter
         if (args.length > 0) {

@@ -88,8 +88,8 @@ public class SWFLoader extends GridSim {
 
         folder_prefix = System.getProperty("user.dir");
 
-        System.out.println("Opening job file at: " + ExperimentSetup.data_sets + "/" + data_set);
-        br = r.openFile(new File(ExperimentSetup.data_sets + "/" + data_set));
+        System.out.println("Opening job file at: " + ExperimentSetup.data_sets_dir + "/" + data_set);
+        br = r.openFile(new File(ExperimentSetup.data_sets_dir + "/" + data_set));
         this.total_jobs = total_jobs;
         this.maxPE = maxPE;
         this.minPErating = minPErating;
