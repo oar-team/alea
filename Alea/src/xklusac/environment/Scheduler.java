@@ -712,9 +712,11 @@ public class Scheduler extends GridSim {
             super.sim_schedule(this.getEntityId(this.getEntityName()), 0.0, AleaSimTags.FAIRSHARE_WEIGHT_DECAY);
         }
         // periodic update of fairshare weights according to currently running jobs
-        double fairdelay = 100 - GridSim.clock();
-        super.sim_schedule(this.getEntityId(this.getEntityName()), fairdelay, AleaSimTags.FAIRSHARE_UPDATE);
-        //super.sim_schedule(this.getEntityId(this.getEntityName()), fairdelay + 2, AleaSimTags.SCHEDULER_PRINT_FIRST_JOB_IN_QUEUE);
+        if (ExperimentSetup.use_fairshare) { // I suppose these 3 lines do not make any sense if fairshare is not enabled
+            double fairdelay = 100 - GridSim.clock();
+            super.sim_schedule(this.getEntityId(this.getEntityName()), fairdelay, AleaSimTags.FAIRSHARE_UPDATE);
+            //super.sim_schedule(this.getEntityId(this.getEntityName()), fairdelay + 2, AleaSimTags.SCHEDULER_PRINT_FIRST_JOB_IN_QUEUE);
+        }
 
         // Accept events until the simulation is finished
         while (!end_of_submission || received < in_job_counter) {
