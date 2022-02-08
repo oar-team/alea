@@ -404,7 +404,12 @@ public class ExperimentSetup {
         Registration.register();
         
         try {
-            aCfg = new AleaConfiguration();
+            if (args.length > 0) {
+                aCfg = new AleaConfiguration(args[0]);
+            }
+            else {
+                aCfg = new AleaConfiguration();
+            }
         } catch (IOException e) { 
             System.err.println("Could not load configuration file!"+e);
             return;
@@ -454,11 +459,11 @@ public class ExperimentSetup {
         data_sets_dir = aCfg.getString("data_set_dir");
         
         // if required - start the graphical output using -v parameter
-        if (args.length > 0) {
+        /*if (args.length > 0) {
             if (args[0].equals("-v")) {
                 visualize = true;
             }
-        }
+        }*/
 
         // list of results
         LinkedList results = new LinkedList();
@@ -581,7 +586,9 @@ public class ExperimentSetup {
         
         //copies the configuration file to the new folder
         File configurationF = aCfg.getFile();
-        File destinationF = new File(ExperimentSetup.getDir(DirectoryLevel.EXPERIMENT_ROOT) + File.separator + aCfg.getFileName());
+        //File destinationF = new File(ExperimentSetup.getDir(DirectoryLevel.EXPERIMENT_ROOT) + File.separator + aCfg.getFileName());
+        // remove path of configuration file, keep only its name
+        File destinationF = new File(ExperimentSetup.getDir(DirectoryLevel.EXPERIMENT_ROOT) + File.separator + configurationF.getName());
         //File destinationF = new File(dir[0] + File.separator + aCfg.getFileName());
         try {
             FileUtil.copyFile(configurationF, destinationF);
