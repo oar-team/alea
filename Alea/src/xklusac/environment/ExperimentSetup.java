@@ -992,7 +992,7 @@ public class ExperimentSetup {
                     Scheduler.runtime = 0.0;
 
                     // reset internal SimJava variables to start new experiment with different job/gridlet setup
-                    Sim_system.setInComplete(true);
+                    //Sim_system.setInComplete(true); // Exception in thread "main" java.lang.NoSuchMethodError: 'void eduni.simjava.Sim_system.setInComplete(boolean)'
                     // store results
                     result_collector.generateResults(suff, experiment_count);
                     result_collector.reset();
